@@ -1,0 +1,224 @@
+﻿  AuthorizationAdmin.cpp
+D:\Progi\vcpkg\installed\x64-windows\include\crow\http_parser_merged.h(587,32): warning C4244: =: преобразование "__int64" в "unsigned long", возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\http_parser_merged.h(607,32): warning C4244: =: преобразование "__int64" в "unsigned long", возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+D:\Progi\vcpkg\installed\x64-windows\include\crow\json.h(1265,35): warning C4267: аргумент: преобразование из "size_t" в "uint32_t"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\json.h(1747,32): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(97,33): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(116,48): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(118,53): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(118,53): warning C4267:         with
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(118,53): warning C4267:         [
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(118,53): warning C4267:             _Ty=int
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(118,53): warning C4267:         ]
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(219,94): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(367,54): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(378,54): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(396,54): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(407,54): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(469,60): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\mustache.h(569,28): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(795,74): warning C4566: символ, представленный универсальным именем символа "\u2514", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(795,74): warning C4566: символ, представленный универсальным именем символа "\u279D", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(799,74): warning C4566: символ, представленный универсальным именем символа "\u2514", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(799,74): warning C4566: символ, представленный универсальным именем символа "\u279D", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(803,74): warning C4566: символ, представленный универсальным именем символа "\u2514", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(803,74): warning C4566: символ, представленный универсальным именем символа "\u279D", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(807,74): warning C4566: символ, представленный универсальным именем символа "\u2514", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(807,74): warning C4566: символ, представленный универсальным именем символа "\u279D", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(811,74): warning C4566: символ, представленный универсальным именем символа "\u2514", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(811,74): warning C4566: символ, представленный универсальным именем символа "\u279D", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(815,74): warning C4566: символ, представленный универсальным именем символа "\u2514", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(815,74): warning C4566: символ, представленный универсальным именем символа "\u279D", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(821,66): warning C4566: символ, представленный универсальным именем символа "\u2514", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(821,66): warning C4566: символ, представленный универсальным именем символа "\u279D", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(832,31): warning C4566: символ, представленный универсальным именем символа "\u2514", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(832,31): warning C4566: символ, представленный универсальным именем символа "\u2799", невозможно представить в текущей кодовой странице (1251)
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(895,70): warning C4244: аргумент: преобразование "__int64" в "unsigned int", возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(916,70): warning C4244: аргумент: преобразование "__int64" в "unsigned int", возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(937,70): warning C4244: аргумент: преобразование "__int64" в "unsigned int", возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(959,61): warning C4267: аргумент: преобразование из "size_t" в "unsigned int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(975,61): warning C4267: аргумент: преобразование из "size_t" в "unsigned int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(990,61): warning C4267: аргумент: преобразование из "size_t" в "unsigned int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(1045,53): warning C4267: +=: преобразование из "size_t" в "unsigned int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(1056,45): warning C4267: +=: преобразование из "size_t" в "unsigned int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(1303,101): warning C4267: аргумент: преобразование из "size_t" в "unsigned int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(1303,87): warning C4267: аргумент: преобразование из "size_t" в "uint16_t"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(1309,118): warning C4267: аргумент: преобразование из "size_t" в "unsigned int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(1369,100): warning C4267: аргумент: преобразование из "size_t" в "unsigned int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\routing.h(1523,24): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\http_server.h(225,37): warning C4267: =: преобразование из "size_t" в "uint16_t"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+      D:\Progi\vcpkg\installed\x64-windows\include\crow\http_server.h(225,37):
+      контекст создания экземпляра шаблона (сначала самый старый)
+          D:\Cod_C++\Gym _Microservices\Gym_Microservices\AuthorizationAdmin\AuthorizationAdmin\AuthorizationAdmin.cpp(86,21):
+          выполняется компиляция ссылки на экземпляр класс шаблон функции "crow::Crow<>"
+          D:\Progi\vcpkg\installed\x64-windows\include\crow\app.h(494,14):
+          во время компиляции функции-члена класс шаблон "void crow::Crow<>::run(void)"
+              D:\Cod_C++\Gym _Microservices\Gym_Microservices\AuthorizationAdmin\AuthorizationAdmin\AuthorizationAdmin.cpp(110,23):
+              см. первую ссылку на "crow::Crow<>::run" в "main"
+          D:\Progi\vcpkg\installed\x64-windows\include\crow\app.h(519,26):
+          выполняется компиляция ссылки на экземпляр класс шаблон функции "crow::Server<crow::Crow<>,crow::SocketAdaptor>"
+          D:\Progi\vcpkg\installed\x64-windows\include\crow\http_server.h(214,18):
+          во время компиляции функции-члена класс шаблон "uint16_t crow::Server<crow::Crow<>,crow::SocketAdaptor>::pick_io_service_idx(void)"
+              D:\Progi\vcpkg\installed\x64-windows\include\crow\http_server.h(234,38):
+              см. первую ссылку на "crow::Server<crow::Crow<>,crow::SocketAdaptor>::pick_io_service_idx" в "crow::Server<crow::Crow<>,crow::SocketAdaptor>::do_accept"
+              D:\Progi\vcpkg\installed\x64-windows\include\crow\http_server.h(168,22):
+              см. первую ссылку на "crow::Server<crow::Crow<>,crow::SocketAdaptor>::do_accept" в "crow::Server<crow::Crow<>,crow::SocketAdaptor>::run"
+              D:\Progi\vcpkg\installed\x64-windows\include\crow\app.h(525,29):
+              см. первую ссылку на "crow::Server<crow::Crow<>,crow::SocketAdaptor>::run" в "crow::Crow<>::run"
+              D:\Cod_C++\Gym _Microservices\Gym_Microservices\AuthorizationAdmin\AuthorizationAdmin\AuthorizationAdmin.cpp(110,23):
+              см. первую ссылку на "crow::Crow<>::run" в "main"
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\http_connection.h(492,75): warning C4244: аргумент: преобразование "unsigned __int64" в "int", возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+      D:\Progi\vcpkg\installed\x64-windows\include\crow\http_connection.h(492,75):
+      контекст создания экземпляра шаблона (сначала самый старый)
+          D:\Progi\vcpkg\installed\x64-windows\include\crow\http_server.h(230,14):
+          во время компиляции функции-члена класс шаблон "void crow::Server<crow::Crow<>,crow::SocketAdaptor>::do_accept(void)"
+              D:\Progi\vcpkg\installed\x64-windows\include\crow\http_server.h(168,22):
+              см. первую ссылку на "crow::Server<crow::Crow<>,crow::SocketAdaptor>::do_accept" в "crow::Server<crow::Crow<>,crow::SocketAdaptor>::run"
+              D:\Progi\vcpkg\installed\x64-windows\include\crow\app.h(525,29):
+              см. первую ссылку на "crow::Server<crow::Crow<>,crow::SocketAdaptor>::run" в "crow::Crow<>::run"
+              D:\Cod_C++\Gym _Microservices\Gym_Microservices\AuthorizationAdmin\AuthorizationAdmin\AuthorizationAdmin.cpp(110,23):
+              см. первую ссылку на "crow::Crow<>::run" в "main"
+          D:\Progi\vcpkg\installed\x64-windows\include\crow\http_server.h(244,19):
+          выполняется компиляция ссылки на экземпляр класс шаблон функции "crow::Connection<Adaptor,Handler>"
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+          D:\Progi\vcpkg\installed\x64-windows\include\crow\http_connection.h(483,14):
+          во время компиляции функции-члена класс шаблон "void crow::Connection<Adaptor,Handler>::do_read(void)"
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+              D:\Progi\vcpkg\installed\x64-windows\include\crow\http_connection.h(101,34):
+              см. первую ссылку на "crow::Connection<Adaptor,Handler>::do_read" в "crow::Connection<Adaptor,Handler>::start::<lambda_1>::operator ()"
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+  
+D:\Progi\vcpkg\installed\x64-windows\include\crow\parser.h(126,25): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "AuthorizationAdmin.cpp")
+      D:\Progi\vcpkg\installed\x64-windows\include\crow\parser.h(126,25):
+      контекст создания экземпляра шаблона (сначала самый старый)
+          D:\Progi\vcpkg\installed\x64-windows\include\crow\http_connection.h(604,32):
+          выполняется компиляция ссылки на экземпляр класс шаблон функции "crow::HTTPParser<crow::Connection<Adaptor,Handler>>"
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+          D:\Progi\vcpkg\installed\x64-windows\include\crow\parser.h(110,14):
+          во время компиляции функции-члена класс шаблон "bool crow::HTTPParser<crow::Connection<Adaptor,Handler>>::feed(const char *,int)"
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+              D:\Progi\vcpkg\installed\x64-windows\include\crow\http_connection.h(492,32):
+              см. первую ссылку на "crow::HTTPParser<crow::Connection<Adaptor,Handler>>::feed" в "crow::Connection<Adaptor,Handler>::do_read::<lambda_1>::operator ()"
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+  
+  AuthorizationAdmin.vcxproj -> D:\Cod_C++\Gym _Microservices\Gym_Microservices\AuthorizationAdmin\x64\Debug\AuthorizationAdmin.exe
+  "pwsh.exe" не является внутренней или внешней
+  командой, исполняемой программой или пакетным файлом.
