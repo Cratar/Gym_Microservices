@@ -5,39 +5,55 @@
 
 #include "crow.h"
 
-#define LOGIN_CONNECT "host=localhost port=5432 dbname=gyms user=postgres password=0000nN"
+#define LOGIN_CONNECT "host=localhost port=5432 dbname=Gym user=postgres password=0000nN"
 
-bool CheckGym() {
-
-
-
+crow::json::wvalue GetGymsJson() {
+    // Устанавливаем соединение с базой данных
     PGconn* conn = PQconnectdb(LOGIN_CONNECT);
 
     if (PQstatus(conn) != CONNECTION_OK) {
         std::cerr << "Connection to database failed: " << PQerrorMessage(conn) << std::endl;
         PQfinish(conn);
-        return false;
+        return crow::json::wvalue{ {"error", "Database connection failed"} };
     }
 
-    std::string sql = "SELECT * FROM gyms";
+    // Выполняем SQL-запрос
+    const char* sql = "SELECT gym_name, address, reservation_date , reservation_time , hall_booked FROM gyms";
+    PGresult* res = PQexec(conn, sql);
 
-
-    PGresult* res = PQexecParams(conn, sql.c_str(), 1, nullptr, nullptr, nullptr, nullptr, 0);
-
-    if (PQresultStatus(res) == PGRES_TUPLES_OK && PQntuples(res) > 0) {
-        std::string storedPassword = PQgetvalue(res, 0, 0);
+    if (PQresultStatus(res) != PGRES_TUPLES_OK) {
+        std::cerr << "SELECT failed: " << PQerrorMessage(conn) << std::endl;
         PQclear(res);
         PQfinish(conn);
-
-        return true;
-
-    }
-    else {
-        PQclear(res);
-        PQfinish(conn);
-        return false;
+        return crow::json::wvalue{ {"error", "SQL query failed"} };
     }
 
+    // Получаем количество строк и столбцов в результате запроса
+    int rows = PQntuples(res);
+    int cols = PQnfields(res);
+
+    // Создаем JSON-ответ
+    crow::json::wvalue jsonResponse;
+    crow::json::wvalue& gymsArray = jsonResponse["gyms"] = crow::json::wvalue::list();
+
+    // Заполняем JSON-ответ данными из результата запроса
+    for (int i = 0; i < rows; i++) {
+        crow::json::wvalue gym;
+        for (int j = 0; j < cols; j++) {
+            std::string columnName = PQfname(res, j);
+            std::string value = PQgetvalue(res, i, j);
+            gym[columnName] = value;
+        }
+
+       
+        gymsArray[i] = std::move(gym);  // Используем индексирование массива
+    }
+
+    // Освобождаем ресурсы
+    PQclear(res);
+    PQfinish(conn);
+
+    return jsonResponse;
 }
 
 int main() {
@@ -47,12 +63,13 @@ int main() {
 
     crow::SimpleApp app;
 
-    CROW_ROUTE(app, "/json")
+    CROW_ROUTE(app, "/check/gym")
         ([] {
-        crow::json::wvalue Response({ {"Gyms", "Список залов"} });
-        Response["message2"] = "Hello, World.. Again!";
-        return Response;
+        return GetGymsJson();
+
             });
+
+           
     app.port(8086).run();
 
 
