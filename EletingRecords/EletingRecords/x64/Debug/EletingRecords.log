@@ -219,4 +219,6 @@ D:\Progi\vcpkg\installed\x64-windows\include\crow\parser.h(126,25): warning C426
               Handler=crow::Crow<>
           ]
   
-LINK : fatal error LNK1168: не удается открыть D:\Cod_C++\Gym _Microservices\Gym_Microservices\EletingRecords\x64\Debug\EletingRecords.exe для записи
+  EletingRecords.vcxproj -> D:\Cod_C++\Gym _Microservices\Gym_Microservices\EletingRecords\x64\Debug\EletingRecords.exe
+  "pwsh.exe" не является внутренней или внешней
+  командой, исполняемой программой или пакетным файлом.

@@ -36,10 +36,9 @@ std::string hashPassword(const std::string& password) {
     return hex_str;
 }
 
-bool AuthorizationAdmin(const crow::json::rvalue& email, const crow::json::rvalue& password) {
+bool AuthorizationAdmin(const std::string& email, const std::string& password) {
 
-    std::string emailS = email.s();
-    std::string passwordS = password.s();
+
 
     PGconn* conn = PQconnectdb(LOGIN_CONNECT);
 
@@ -51,7 +50,7 @@ bool AuthorizationAdmin(const crow::json::rvalue& email, const crow::json::rvalu
 
     std::string sql = "SELECT password FROM admin WHERE email = $1";
 
-    const char* paramValues[1] = { emailS.c_str() };
+    const char* paramValues[1] = { email.c_str() };
 
     PGresult* res = PQexecParams(conn, sql.c_str(), 1, nullptr, paramValues, nullptr, nullptr, 0);
 
@@ -60,7 +59,7 @@ bool AuthorizationAdmin(const crow::json::rvalue& email, const crow::json::rvalu
         PQclear(res);
         PQfinish(conn);
 
-        if (hashPassword(passwordS) == storedPassword) {
+        if (hashPassword(password) == storedPassword) {
             std::cout << "Вы успешно авторизовались.\n";
             return true;
         }
@@ -95,8 +94,8 @@ int main() {
         if (!json_data)
             return crow::response(crow::status::BAD_REQUEST);
 
-        crow::json::rvalue email = json_data["email"];
-        crow::json::rvalue password = json_data["password"];
+        std::string email = json_data["email"].s();
+        std::string password = json_data["password"].s();
 
         bool flag = AuthorizationAdmin(email, password);
 

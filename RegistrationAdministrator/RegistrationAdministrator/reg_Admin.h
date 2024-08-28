@@ -3,11 +3,9 @@
 
 #pragma once
 #include <string>
-#include "crow.h"
 
 #ifndef REG_USER_H
 #define REG_USER_H
 
-bool RegistrationAdministrator(const crow::json::rvalue& name, const crow::json::rvalue& surname, const crow::json::rvalue& email, const crow::json::rvalue& post, const crow::json::rvalue& age, const crow::json::rvalue& password);
-
+bool RegistrationAdministrator(const std::string& name, const std::string& surname, const std::string& email, const std::string& post, const std::string& age, const std::string& password);
 #endif

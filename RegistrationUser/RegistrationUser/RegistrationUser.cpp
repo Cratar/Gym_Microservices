@@ -34,16 +34,11 @@ std::string hashPassword(const std::string& password) {
     return hex_str;
 }
 
-bool RegistrationUser(const crow::json::rvalue& name, const crow::json::rvalue& surname, const crow::json::rvalue& email, const crow::json::rvalue& age,const crow::json::rvalue& password) {
+bool RegistrationUser(const std::string& name, const std::string& surname, const std::string& email, const std::string& age, const std::string& password) {
 
-    std::string nameS = name.s();
-    std::string surnameS = surname.s();
-    std::string emailS = email.s();
-    std::string ageS = age.s();
-    std::string passwordS = password.s();
 
     // Хэшируем пароль и сохраняем результат
-    std::string hashedPassword = hashPassword(passwordS);
+    std::string hashedPassword = hashPassword(password);
 
     // Устанавливаем соединение
     PGconn* conn = PQconnectdb(LOGIN_CONNECT);
@@ -59,7 +54,7 @@ bool RegistrationUser(const crow::json::rvalue& name, const crow::json::rvalue& 
     const char* sql = "INSERT INTO users (name, surname, email, age, password) VALUES ($1, $2, $3, $4, $5) ;";
 
     // Параметры для SQL-запроса
-    const char* paramValues[5] = { nameS.c_str(), surnameS.c_str(), emailS.c_str(), ageS.c_str() , hashedPassword.c_str() };
+    const char* paramValues[5] = { name.c_str(), surname.c_str(), email.c_str(), age.c_str() , hashedPassword.c_str() };
 
     // Выполняем SQL-запрос
     PGresult* res = PQexecParams(conn, sql, 5, nullptr, paramValues, nullptr, nullptr, 0);
@@ -96,11 +91,11 @@ int main() {
         if (!json_data)
             return crow::response(crow::status::BAD_REQUEST);
 
-        crow::json::rvalue name = json_data["name"];
-        crow::json::rvalue surname = json_data["surname"];
-        crow::json::rvalue email = json_data["email"];
-        crow::json::rvalue age = json_data["age"];
-        crow::json::rvalue password = json_data["password"];
+        std::string name = json_data["name"].s();
+        std::string surname = json_data["surname"].s();
+        std::string email = json_data["email"].s();
+        std::string age = json_data["age"].s();
+        std::string password = json_data["password"].s();
 
 
         bool flag = RegistrationUser(name, surname, email, age, password);

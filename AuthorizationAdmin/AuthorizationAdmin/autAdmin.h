@@ -5,7 +5,7 @@
 #ifndef AUTUSER_H
 #define AUTUSER_H
 
-bool AuthorizationAdmin(const crow::json::rvalue& email, const crow::json::rvalue& password);
+bool AuthorizationAdmin(const std::string& email, const std::string& password);
 
 
 #endif
