@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: gym_app
+    ports:
+      - "8080:8080"
+      - "5432:5432"
+    depends_on:
+      - db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0000nN
+      POSTGRES_DB: gyms
+    volumes:
+      - .:/app
+    command: ["./build/CheckGym"]
+  
+  db:
+    image: postgres:latest
+    container_name: gym_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0000nN
+      POSTGRES_DB: gyms
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

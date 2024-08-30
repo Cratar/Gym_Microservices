@@ -1,14 +1,14 @@
 ﻿  ViewAvailableRooms.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
 D:\Progi\vcpkg\installed\x64-windows\include\crow\http_parser_merged.h(587,32): warning C4244: =: преобразование "__int64" в "unsigned long", возможна потеря данных
   (компиляция исходного файла "ViewAvailableRooms.cpp")
   
 D:\Progi\vcpkg\installed\x64-windows\include\crow\http_parser_merged.h(607,32): warning C4244: =: преобразование "__int64" в "unsigned long", возможна потеря данных
   (компиляция исходного файла "ViewAvailableRooms.cpp")
   
-  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
-  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
-  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
-  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
 D:\Progi\vcpkg\installed\x64-windows\include\crow\json.h(1265,35): warning C4267: аргумент: преобразование из "size_t" в "uint32_t"; возможна потеря данных
   (компиляция исходного файла "ViewAvailableRooms.cpp")
   
@@ -144,7 +144,7 @@ D:\Progi\vcpkg\installed\x64-windows\include\crow\http_server.h(225,37): warning
           выполняется компиляция ссылки на экземпляр класс шаблон функции "crow::Crow<>"
           D:\Progi\vcpkg\installed\x64-windows\include\crow\app.h(494,14):
           во время компиляции функции-члена класс шаблон "void crow::Crow<>::run(void)"
-              D:\Cod_C++\Gym _Microservices\Gym_Microservices\ViewAvailableRooms\ViewAvailableRooms\ViewAvailableRooms.cpp(73,23):
+              D:\Cod_C++\Gym _Microservices\Gym_Microservices\ViewAvailableRooms\ViewAvailableRooms\ViewAvailableRooms.cpp(72,23):
               см. первую ссылку на "crow::Crow<>::run" в "main"
           D:\Progi\vcpkg\installed\x64-windows\include\crow\app.h(519,26):
           выполняется компиляция ссылки на экземпляр класс шаблон функции "crow::Server<crow::Crow<>,crow::SocketAdaptor>"
@@ -156,7 +156,7 @@ D:\Progi\vcpkg\installed\x64-windows\include\crow\http_server.h(225,37): warning
               см. первую ссылку на "crow::Server<crow::Crow<>,crow::SocketAdaptor>::do_accept" в "crow::Server<crow::Crow<>,crow::SocketAdaptor>::run"
               D:\Progi\vcpkg\installed\x64-windows\include\crow\app.h(525,29):
               см. первую ссылку на "crow::Server<crow::Crow<>,crow::SocketAdaptor>::run" в "crow::Crow<>::run"
-              D:\Cod_C++\Gym _Microservices\Gym_Microservices\ViewAvailableRooms\ViewAvailableRooms\ViewAvailableRooms.cpp(73,23):
+              D:\Cod_C++\Gym _Microservices\Gym_Microservices\ViewAvailableRooms\ViewAvailableRooms\ViewAvailableRooms.cpp(72,23):
               см. первую ссылку на "crow::Crow<>::run" в "main"
   
 D:\Progi\vcpkg\installed\x64-windows\include\crow\http_connection.h(492,75): warning C4244: аргумент: преобразование "unsigned __int64" в "int", возможна потеря данных
@@ -169,7 +169,7 @@ D:\Progi\vcpkg\installed\x64-windows\include\crow\http_connection.h(492,75): war
               см. первую ссылку на "crow::Server<crow::Crow<>,crow::SocketAdaptor>::do_accept" в "crow::Server<crow::Crow<>,crow::SocketAdaptor>::run"
               D:\Progi\vcpkg\installed\x64-windows\include\crow\app.h(525,29):
               см. первую ссылку на "crow::Server<crow::Crow<>,crow::SocketAdaptor>::run" в "crow::Crow<>::run"
-              D:\Cod_C++\Gym _Microservices\Gym_Microservices\ViewAvailableRooms\ViewAvailableRooms\ViewAvailableRooms.cpp(73,23):
+              D:\Cod_C++\Gym _Microservices\Gym_Microservices\ViewAvailableRooms\ViewAvailableRooms\ViewAvailableRooms.cpp(72,23):
               см. первую ссылку на "crow::Crow<>::run" в "main"
           D:\Progi\vcpkg\installed\x64-windows\include\crow\http_server.h(244,19):
           выполняется компиляция ссылки на экземпляр класс шаблон функции "crow::Connection<Adaptor,Handler>"

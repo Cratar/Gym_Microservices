@@ -5,7 +5,7 @@
 
 #include "crow.h"
 
-#define LOGIN_CONNECT "host=localhost port=5432 dbname=Gym user=postgres password=0000nN"
+#define LOGIN_CONNECT "host=my_db port=5432 dbname=Gym user=postgres password=0000nN"
 
 crow::json::wvalue GetGymsJson() {
     // Устанавливаем соединение с базой данных
@@ -66,11 +66,10 @@ int main() {
     CROW_ROUTE(app, "/check/gym")
         ([] {
         return GetGymsJson();
-
             });
 
            
-    app.port(8086).run();
+    app.port(8080).run();
 
 
 }
