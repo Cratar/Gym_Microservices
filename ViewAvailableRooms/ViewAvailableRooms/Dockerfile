@@ -1,7 +1,7 @@
-# Используем образ на базе Ubuntu
+# РСЃРїРѕР»СЊР·СѓРµРј РѕР±СЂР°Р· РЅР° Р±Р°Р·Рµ Ubuntu
 FROM ubuntu:latest
 
-# Устанавливаем необходимые пакеты
+# РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РЅРµРѕР±С…РѕРґРёРјС‹Рµ РїР°РєРµС‚С‹
 RUN apt-get update && \
     apt-get install -y \
     build-essential \
@@ -9,28 +9,24 @@ RUN apt-get update && \
     git \
     libpq-dev \
     libasio-dev \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Устанавливаем рабочую директорию
+# РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЂР°Р±РѕС‡СѓСЋ РґРёСЂРµРєС‚РѕСЂРёСЋ
 WORKDIR /app
 
-# Клонируем библиотеку Crow
+# РљРѕРїРёСЂСѓРµРј РёСЃС…РѕРґРЅС‹Р№ РєРѕРґ Рё CMakeLists.txt РІ СЂР°Р±РѕС‡СѓСЋ РґРёСЂРµРєС‚РѕСЂРёСЋ
+COPY . .
+
+# РљР»РѕРЅРёСЂСѓРµРј Р±РёР±Р»РёРѕС‚РµРєСѓ Crow
 RUN git clone https://github.com/CrowCpp/Crow.git /app/Crow
 
-# Клонируем и устанавливаем ASIO
-RUN git clone https://github.com/chriskohlhoff/asio.git /app/asio
-
-# Копируем исходный код и CMakeLists.txt в рабочую директорию
-COPY . /app
-
-# Сборка проекта
+# РЎР±РѕСЂРєР° РїСЂРѕРµРєС‚Р°
 RUN mkdir -p /app/build && cd /app/build && \
     cmake .. && \
     make
 
-#EXPOSE 5432
-# Указываем команду для запуска приложения
-CMD ["./build/CheckGym"]
+# РЈРєР°Р·С‹РІР°РµРј РїРѕСЂС‚, РєРѕС‚РѕСЂС‹Р№ Р±СѓРґРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРј
+EXPOSE 8081
 
-#CMD ["./build/CheckGym"]
+# РЈРєР°Р·С‹РІР°РµРј РєРѕРјР°РЅРґСѓ РґР»СЏ Р·Р°РїСѓСЃРєР° РїСЂРёР»РѕР¶РµРЅРёСЏ
+CMD ["./build/CheckGym"]

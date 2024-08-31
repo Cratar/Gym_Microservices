@@ -5,18 +5,16 @@ services:
     build: .
     container_name: gym_app
     ports:
-      - "8080:8080"
-      - "5432:5432"
+      - "8081:8081"
     depends_on:
       - db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 0000nN
-      POSTGRES_DB: gyms
-    volumes:
-      - .:/app
-    command: ["./build/CheckGym"]
-  
+      POSTGRES_HOST: host.docker.internal
+      POSTGRES_DB: Gym
+    command: ["/bin/bash", "-c", "sleep 10 && ./build/CheckGym"]
+
   db:
     image: postgres:latest
     container_name: gym_db
@@ -25,9 +23,11 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 0000nN
-      POSTGRES_DB: gyms
+      POSTGRES_HOST: host.docker.internal
+      POSTGRES_DB: Gym
+
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgressql/data
 
 volumes:
   pgdata:

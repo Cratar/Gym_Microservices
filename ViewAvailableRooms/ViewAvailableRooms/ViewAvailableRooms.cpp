@@ -5,7 +5,7 @@
 
 #include "crow.h"
 
-#define LOGIN_CONNECT "host=my_db port=5432 dbname=Gym user=postgres password=0000nN"
+#define LOGIN_CONNECT "host=host.docker.internal port=5432 dbname=Gym user=postgres password=0000nN"
 
 crow::json::wvalue GetGymsJson() {
     // Устанавливаем соединение с базой данных
@@ -59,7 +59,8 @@ crow::json::wvalue GetGymsJson() {
 int main() {
 
 
-    setlocale(LC_ALL, "Ru");
+    setlocale(LC_ALL, "ru_RU.UTF-8");
+
 
     crow::SimpleApp app;
 
@@ -69,7 +70,7 @@ int main() {
             });
 
            
-    app.port(8080).run();
+    app.port(8081).run();
 
 
 }
