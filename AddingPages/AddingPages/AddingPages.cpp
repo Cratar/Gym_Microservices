@@ -5,8 +5,8 @@
 
 
 #include "crow.h"
-
-#define LOGIN_CONNECT "host=localhost port=5432 dbname=Gym user=postgres password=0000nN"
+                                
+#define LOGIN_CONNECT "host=host.docker.internal port=5432 dbname=Gym user=postgres password=0000nN"
 
 
 bool AddingPages(const std::string& gym_name, const std::string& address, const std::string& reservation_date, const std::string& reservation_time, const std::string& hall_booked) {
@@ -51,7 +51,8 @@ bool AddingPages(const std::string& gym_name, const std::string& address, const 
 int main() {
 
 
-    setlocale(LC_ALL, "Ru");
+    setlocale(LC_ALL, "ru_RU.UTF-8");
+
 
     crow::SimpleApp app;
 
@@ -78,7 +79,7 @@ int main() {
 
 
             });
-    app.port(8086).run();
+    app.port(8084).run();
 
 
 }

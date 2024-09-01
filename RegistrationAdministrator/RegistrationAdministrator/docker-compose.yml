@@ -3,28 +3,28 @@ version: '3.8'
 services:
   app:
     build: .
-    container_name: gym_app
+    container_name: reg_admin
     ports:
-      - "8093:8081"
+      - "8089:8083"
     depends_on:
       - db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 0000nN
       POSTGRES_HOST: host.docker.internal
-      POSTGRES_DB: Gym
-    command: ["/bin/bash", "-c", "sleep 10 && ./build/CheckGym"]
+      POSTGRES_DB: reg_admin
+    command: ["/bin/bash", "-c", "sleep 10 && ./build/RegAdmin"]
 
   db:
     image: postgres:latest
-    container_name: gym_db
+    container_name: db_admin
     ports:
-      - "8094:5432"
+      - "8090:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 0000nN
       POSTGRES_HOST: host.docker.internal
-      POSTGRES_DB: Gym
+      POSTGRES_DB: reg_admin
 
     volumes:
       - pgdata:/var/lib/postgressql/data

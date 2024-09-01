@@ -45,7 +45,7 @@ crow::json::wvalue GetGymsJson() {
             gym[columnName] = value;
         }
 
-       
+
         gymsArray[i] = std::move(gym);  // Используем индексирование массива
     }
 
@@ -69,7 +69,7 @@ int main() {
         return GetGymsJson();
             });
 
-           
+
     app.port(8081).run();
 
 

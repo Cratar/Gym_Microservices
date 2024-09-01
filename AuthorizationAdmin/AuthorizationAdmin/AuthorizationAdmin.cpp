@@ -9,7 +9,7 @@
 #include "crow.h"
 
 
-#define LOGIN_CONNECT "host=localhost port=5432 dbname=reg_admin user=postgres password=0000nN"
+#define LOGIN_CONNECT "host=host.docker.internal port=5432 dbname=reg_admin user=postgres password=0000nN"
 
 
 std::string hashPassword(const std::string& password) {
@@ -37,8 +37,6 @@ std::string hashPassword(const std::string& password) {
 }
 
 bool AuthorizationAdmin(const std::string& email, const std::string& password) {
-
-
 
     PGconn* conn = PQconnectdb(LOGIN_CONNECT);
 
@@ -104,10 +102,8 @@ int main() {
 
         return crow::response(crow::status::BAD_REQUEST);
 
-
-
             });
-    app.port(8086).run();
+    app.port(8087).run();
 
 
 }

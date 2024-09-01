@@ -3,7 +3,7 @@
 #include <libpq-fe.h>
 #include "crow.h"
 
-#define LOGIN_CONNECT "host=localhost port=5432 dbname=Gym user=postgres password=0000nN"
+#define LOGIN_CONNECT "host=host.docker.internal port=5432 dbname=Gym user=postgres password=0000nN"
 
 bool DeletingRecords(const std::string& gym_name, const std::string& reservation_date) {
     // Устанавливаем соединение
@@ -41,7 +41,7 @@ bool DeletingRecords(const std::string& gym_name, const std::string& reservation
 }
 
 int main() {
-    setlocale(LC_ALL, "Ru");
+    setlocale(LC_ALL, "ru_RU.UTF-8");
 
     crow::SimpleApp app;
 
@@ -69,5 +69,5 @@ int main() {
             return crow::response(crow::status::BAD_REQUEST);
         });
 
-    app.port(8086).run();
+    app.port(8085).run();
 }

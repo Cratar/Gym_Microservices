@@ -27,4 +27,11 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="docker-compose.yml" />
+    <None Include="Dockerfile" />
+  </ItemGroup>
 </Project>
