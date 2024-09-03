@@ -133,6 +133,13 @@
     <ClInclude Include="hash.h" />
     <ClInclude Include="reg_Admin.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="docker-compose.yml" />
+    <None Include="Dockerfile" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

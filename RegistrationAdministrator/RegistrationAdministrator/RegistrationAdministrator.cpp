@@ -40,6 +40,7 @@ bool RegistrationAdministrator(const std::string& name, const std::string& surna
     // Хэшируем пароль и сохраняем результат
     std::string hashedPassword = hashPassword(password);
 
+
     // Устанавливаем соединение
     PGconn* conn = PQconnectdb(LOGIN_CONNECT);
 
