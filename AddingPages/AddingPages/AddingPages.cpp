@@ -3,9 +3,9 @@
 #include <libpq-fe.h>
 #include "crow.h"
 // host.docker.internal   localhost
+#define LOGIN_CONNECT_CREATE_DB "host=host.docker.internal port=5433 dbname=postgres user=postgres password=0000nN"
+#define LOGIN_CONNECT "host=host.docker.internal port=5433 dbname=gym user=postgres password=0000nN"
 
-#define LOGIN_CONNECT_CREATE_DB "host=localhost port=5432 dbname=NAN user=postgres password=0000nN"
-#define LOGIN_CONNECT "host=localhost port=5432 dbname=Gym user=postgres password=0000nN"
 
 // Функция для добавления записей в таблицу gyms
 bool AddingPages(const std::string& gym_name, const std::string& address, const std::string& reservation_date, const std::string& reservation_time, const std::string& hall_booked) {
@@ -46,7 +46,15 @@ bool CreateDatabase() {
         return false;
     }
 
-    const char* sql = "CREATE DATABASE Gym";
+    const char* sql = R"(
+        CREATE DATABASE gym
+        WITH
+        OWNER = postgres
+        ENCODING = 'UTF8'
+        LOCALE_PROVIDER = 'libc'
+        CONNECTION LIMIT = -1
+        IS_TEMPLATE = False;
+    )";
 
     PGresult* res = PQexec(conn, sql);
 
@@ -60,7 +68,7 @@ bool CreateDatabase() {
     PQclear(res);
     PQfinish(conn);
 
-    std::cout << "Database 'Gym' created successfully!" << std::endl;
+    std::cout << "Database 'gym' created successfully!" << std::endl;
     return true;
 }
 
@@ -122,32 +130,28 @@ int main() {
         std::string reservation_time = json_data["reservation_time"].s();
         std::string hall_booked = json_data["hall_booked"].s();
 
-        bool flag = AddingPages(gym_name, address, reservation_date, reservation_time, hall_booked);
+        bool success = AddingPages(gym_name, address, reservation_date, reservation_time, hall_booked);
 
-        if (flag)
+        if (success)
             return crow::response(200);
-
-        return crow::response(crow::status::BAD_REQUEST);
+        else
+            return crow::response(crow::status::BAD_REQUEST);
             });
 
     CROW_ROUTE(app, "/create_db")
         ([] {
-        if (CreateDatabase()) {
+        if (CreateDatabase())
             return crow::response(200);
-        }
-        else {
+        else
             return crow::response(crow::status::BAD_REQUEST);
-        }
             });
 
     CROW_ROUTE(app, "/create_table")
         ([] {
-        if (CreateTable()) {
+        if (CreateTable())
             return crow::response(200);
-        }
-        else {
+        else
             return crow::response(crow::status::BAD_REQUEST);
-        }
             });
 
     app.port(8084).multithreaded().run();

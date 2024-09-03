@@ -12,19 +12,19 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 0000nN
       POSTGRES_HOST: host.docker.internal
-      POSTGRES_DB: Gym 
+      
     command: ["/bin/bash", "-c", "sleep 10 && ./build/AddingPages"] 
 
   db:
     image: postgres:latest
     container_name: db_adding_pages  
     ports:
-      - "8082:5432"
+      - "8082:5433"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 0000nN
       POSTGRES_HOST: host.docker.internal
-      POSTGRES_DB: Gym 
+      POSTGRES_DB: gym 
 
     volumes:
       - pgdata:/var/lib/postgressql/data
