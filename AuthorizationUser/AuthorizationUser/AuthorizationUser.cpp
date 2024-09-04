@@ -8,8 +8,9 @@
 #include "crow.h"
 
 
-#define LOGIN_CONNECT "host=host.docker.internal port=5432 dbname=reg_user user=postgres password=0000nN"
 
+#define LOGIN_CONNECT_CREATE_DB "host=host.docker.internal port=5433 dbname=postgres user=postgres password=0000nN"
+#define LOGIN_CONNECT "host=host.docker.internal port=5433 dbname=reg_user user=postgres password=0000nN"
 
 std::string hashPassword(const std::string& password) {
     unsigned char hash[SHA256_DIGEST_LENGTH];
@@ -74,6 +75,84 @@ bool AuthorizationUser(const std::string& email, const std::string& password) {
 
 }
 
+// Функция для создания базы данных 
+bool CreateDatabase() {
+    PGconn* conn = PQconnectdb(LOGIN_CONNECT_CREATE_DB);
+
+    if (PQstatus(conn) != CONNECTION_OK) {
+        std::cerr << "Connection to database failed: " << PQerrorMessage(conn) << std::endl;
+        PQfinish(conn);
+        return false;
+    }
+
+    const char* sql = R"(
+        CREATE DATABASE reg_user
+        WITH
+        OWNER = postgres
+        ENCODING = 'UTF8'
+        LOCALE_PROVIDER = 'libc'
+        CONNECTION LIMIT = -1
+        IS_TEMPLATE = False;
+    )";
+
+    PGresult* res = PQexec(conn, sql);
+
+    if (PQresultStatus(res) != PGRES_COMMAND_OK) {
+        std::cerr << "Database creation failed: " << PQerrorMessage(conn) << std::endl;
+        PQclear(res);
+        PQfinish(conn);
+        return false;
+    }
+
+    PQclear(res);
+    PQfinish(conn);
+
+    std::cout << "Database 'admin' created successfully!" << std::endl;
+    return true;
+}
+
+// Функция для создания таблицы gyms в базе данных Gym
+bool CreateTable() {
+    PGconn* conn = PQconnectdb(LOGIN_CONNECT);
+
+    if (PQstatus(conn) != CONNECTION_OK) {
+        std::cerr << "Connection to database failed: " << PQerrorMessage(conn) << std::endl;
+        PQfinish(conn);
+        return false;
+    }
+
+    const char* sql = R"(
+
+        CREATE TABLE public.users (
+          id_user serial4 NOT NULL,
+          "name" varchar(100) NOT NULL,
+          surname varchar(100) NULL,
+          email varchar(100) NOT NULL,
+          age int4 NULL,
+          "password" varchar(100) NOT NULL,
+          CONSTRAINT users_email_key UNIQUE (email),
+          CONSTRAINT users_pkey PRIMARY KEY (id_user)
+        );
+
+        ALTER TABLE public.users OWNER TO postgres;
+        GRANT ALL ON TABLE public.users TO postgres;
+    )";
+
+    PGresult* res = PQexec(conn, sql);
+
+    if (PQresultStatus(res) != PGRES_COMMAND_OK) {
+        std::cerr << "Table creation failed: " << PQerrorMessage(conn) << std::endl;
+        PQclear(res);
+        PQfinish(conn);
+        return false;
+    }
+
+    PQclear(res);
+    PQfinish(conn);
+
+    std::cout << "Table 'user' created successfully!" << std::endl;
+    return true;
+}
 
 
 int main() {
@@ -102,9 +181,24 @@ int main() {
         
         return crow::response(crow::status::BAD_REQUEST);
 
-
-
             });
+
+    CROW_ROUTE(app, "/create_db")
+        ([] {
+        if (CreateDatabase())
+            return crow::response(200);
+        else
+            return crow::response(crow::status::BAD_REQUEST);
+            });
+
+    CROW_ROUTE(app, "/create_table")
+        ([] {
+        if (CreateTable())
+            return crow::response(200);
+        else
+            return crow::response(crow::status::BAD_REQUEST);
+            });
+
     app.port(8086).run();
 
 

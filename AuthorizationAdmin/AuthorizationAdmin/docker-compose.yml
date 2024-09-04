@@ -12,7 +12,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 0000nN
       POSTGRES_HOST: host.docker.internal
-      POSTGRES_DB: reg_admin
     command: ["/bin/bash", "-c", "sleep 10 && ./build/AuthorizationAdmin"]
 
   db:
@@ -24,7 +23,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 0000nN
       POSTGRES_HOST: host.docker.internal
-      POSTGRES_DB: reg_admin
 
     volumes:
       - pgdata:/var/lib/postgressql/data
