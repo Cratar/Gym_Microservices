@@ -13,7 +13,7 @@ add_subdirectory(Crow)
 
 # Поиск библиотеки PostgreSQL и OpenSSL
 find_package(PostgreSQL REQUIRED)
-#!
+
 
 # Проверяем, что найдены необходимые библиотеки
 if (NOT PostgreSQL_FOUND)

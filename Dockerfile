@@ -29,4 +29,4 @@ RUN mkdir -p /app/build && cd /app/build && \
 EXPOSE 80
 
 # Указываем команду для запуска приложения
-CMD ["./build/AddingPages"]
+CMD ["./build/SportGym"]
