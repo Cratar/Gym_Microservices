@@ -1,53 +1,34 @@
 version: '3.8'
 
 services:
-  app:
-    restart: always
-    build: .
-    container_name: app_file 
-    ports:
-      - "8081:80" 
-    depends_on:
-      - db
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 0000nN
-      POSTGRES_HOST: host.docker.internal
-      
-    command: ["/bin/bash", "-c", "sleep 10 && ./build/SportGym"] 
-
   db:
     restart: always
     image: postgres:latest
     container_name: db_all
     ports:
-      - "8082:5433"
+      - "8081:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 0000nN
       POSTGRES_HOST: host.docker.internal
+      POSTGRES_DB: sport_gyms
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
   adding_pages:
+    restart: always
     build: ./AddingPages/AddingPages
-    container_name: adding_pages 
+    container_name: adding_pages
     ports:
-      - "8083:80" 
+      - "8082:80"
     depends_on:
       - db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 0000nN
       POSTGRES_HOST: host.docker.internal
-      
-    command: ["/bin/bash", "-c", "sleep 10 && ./build/AddingPages"] 
-
-
-
-
-    volumes:
-      - pgdata:/var/lib/postgressql/data
+      POSTGRES_DB: sport_gyms
+    command: ["/bin/bash", "-c", "sleep 10 && ./build/AddingPages"]
 
 volumes:
-  pgdata:
-
-
+  pgdata: # Volume для данных PostgreSQL

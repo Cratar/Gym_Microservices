@@ -20,12 +20,6 @@ bool CreateDatabase() {
 
     const char* sql = R"(
         CREATE DATABASE sport_gyms
-        WITH
-        OWNER = postgres
-        ENCODING = 'UTF8'
-        LOCALE_PROVIDER = 'libc'
-        CONNECTION LIMIT = -1
-        IS_TEMPLATE = False;
     )";
 
     PGresult* res = PQexec(conn, sql);
@@ -55,47 +49,37 @@ bool CreateTable() {
     }
 
     const char* sql = R"(
-        CREATE TABLE IF NOT EXISTS public.gyms (
-            gym_id serial4 NOT NULL,
+        CREATE TABLE IF NOT EXISTS gyms (
+            gym_id SERIAL PRIMARY KEY,
             gym_name varchar(50) NOT NULL,
             address varchar(100) NOT NULL,
             reservation_date date NULL,
-            reservation_time time NULL,
-            CONSTRAINT gyms_pkey PRIMARY KEY (gym_id)
+            reservation_time time NULL
+
         );
 
-        ALTER TABLE public.gyms OWNER TO postgres;
-        GRANT ALL ON TABLE public.gyms TO postgres;
-
-       CREATE TABLE IF NOT EXISTS public.admin (
-          id_admin serial4 NOT NULL,
-          "name" varchar(30) NOT NULL,
+       CREATE TABLE IF NOT EXISTS admin (
+          id_admin SERIAL PRIMARY KEY,
+          name varchar(30) NOT NULL,
           surname varchar(30) NULL,
           email varchar(80) NOT NULL,
           post varchar(30) NOT NULL,
           age int4 NULL,
-          "password" varchar(100) NOT NULL,
-          CONSTRAINT admin_email_key UNIQUE (email),
-          CONSTRAINT admin_pkey PRIMARY KEY (id_admin)
-        );
+          password varchar(100) NOT NULL
 
-        ALTER TABLE public."admin" OWNER TO postgres;
-        GRANT ALL ON TABLE public."admin" TO postgres;
+        );
 
 
         CREATE TABLE IF NOT EXISTS public.users (
-          id_user serial4 NOT NULL,
-          "name" varchar(100) NOT NULL,
+          id_user SERIAL PRIMARY KEY,
+          name varchar(100) NOT NULL,
           surname varchar(100) NULL,
           email varchar(100) NOT NULL,
           age int4 NULL,
-          "password" varchar(100) NOT NULL,
-          CONSTRAINT users_email_key UNIQUE (email),
-          CONSTRAINT users_pkey PRIMARY KEY (id_user)
+          password varchar(100) NOT NULL
+
         );
- 
-        ALTER TABLE public.users OWNER TO postgres;
-        GRANT ALL ON TABLE public.users TO postgres;
+
     )";
 
     PGresult* res = PQexec(conn, sql);
@@ -134,5 +118,5 @@ int main() {
             return crow::response(crow::status::BAD_REQUEST);
             });
 
-    app.port(8084).multithreaded().run();
+    app.port(80).multithreaded().run();
 }

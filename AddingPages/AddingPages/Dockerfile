@@ -25,6 +25,9 @@ RUN mkdir -p /app/build && cd /app/build && \
     cmake .. && \
     make
 
+# Делаем исполняемый файл доступным для запуска
+RUN chmod +x /app/build/AddingPages
+
 # Указываем порт, который будет использоваться приложением
 EXPOSE 80
 
