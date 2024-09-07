@@ -2,8 +2,8 @@
 #include <string>
 #include <libpq-fe.h>
 #include "crow.h"
-
-#define LOGIN_CONNECT "host=host.docker.internal port=5432 dbname=Gym user=postgres password=0000nN"
+//host.docker.internal
+#define LOGIN_CONNECT "host=host.docker.internal port=5432 dbname=sport_gyms user=postgres password=0000nN"
 
 bool DeletingRecords(const std::string& gym_name, const std::string& reservation_date) {
     // Устанавливаем соединение
@@ -69,5 +69,6 @@ int main() {
             return crow::response(crow::status::BAD_REQUEST);
         });
 
-    app.port(8085).run();
+    app.port(80).multithreaded().run();
+
 }

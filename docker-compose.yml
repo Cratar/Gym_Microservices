@@ -105,6 +105,20 @@ services:
     command: ["/bin/bash", "-c", "sleep 10 && ./build/AuthorizationUser"]
 
 
+  dell_records:
+    build: ./EletingRecords/EletingRecords
+    container_name: dell_records 
+    ports:
+      - "8088:80" 
+    depends_on:
+      - db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0000nN
+      POSTGRES_HOST: host.docker.internal
+      POSTGRES_DB: reg_user 
+    command: ["/bin/bash", "-c", "sleep 10 && ./build/EletingRecords"] 
+
 
 
 volumes:

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(AddingPages) 
+project(EletingRecords) 
 
 # Устанавливаем стандарт C++
 set(CMAKE_CXX_STANDARD 17)
@@ -13,7 +13,7 @@ add_subdirectory(Crow)
 
 # Поиск библиотеки PostgreSQL и OpenSSL
 find_package(PostgreSQL REQUIRED)
-#!
+
 
 # Проверяем, что найдены необходимые библиотеки
 if (NOT PostgreSQL_FOUND)
