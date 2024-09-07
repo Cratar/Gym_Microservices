@@ -30,5 +30,22 @@ services:
       POSTGRES_DB: sport_gyms
     command: ["/bin/bash", "-c", "sleep 10 && ./build/AddingPages"]
 
+
+  create_db_table:
+    restart: always
+    build: ./CreateDbTable/CreateDbTable
+    container_name: create_db_table
+    ports:
+      - "8083:80"
+    depends_on:
+      - db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0000nN
+      POSTGRES_HOST: host.docker.internal
+      POSTGRES_DB: sport_gyms
+    command: ["/bin/bash", "-c", "sleep 10 && ./build/CreateDbTable"]
+
+
 volumes:
   pgdata: # Volume для данных PostgreSQL
