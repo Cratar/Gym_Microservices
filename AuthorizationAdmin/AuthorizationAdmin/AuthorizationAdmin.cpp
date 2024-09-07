@@ -8,7 +8,7 @@
 
 #include "crow.h"
 
-#define LOGIN_CONNECT "host=host.docker.internal port=5433 dbname=sport_gyms user=postgres password=0000nN"
+#define LOGIN_CONNECT "host=host.docker.internal port=5432 dbname=sport_gyms user=postgres password=0000nN"
 
 
 std::string hashPassword(const std::string& password) {
@@ -105,7 +105,7 @@ int main() {
 
 
 
-    app.port(8084).multithreaded().run();
+    app.port(80).multithreaded().run();
 
 
 }
