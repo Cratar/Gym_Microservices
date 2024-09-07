@@ -119,7 +119,19 @@ services:
       POSTGRES_DB: reg_user 
     command: ["/bin/bash", "-c", "sleep 10 && ./build/EletingRecords"] 
 
-
+  gym_app:
+    build: ./ViewAvailableRooms/ViewAvailableRooms
+    container_name: gym_app
+    ports:
+      - "8089:80"
+    depends_on:
+      - db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0000nN
+      POSTGRES_HOST: host.docker.internal
+      POSTGRES_DB: reg_user
+    command: ["/bin/bash", "-c", "sleep 10 && ./build/CheckGym"]
 
 volumes:
   pgdata: {}
