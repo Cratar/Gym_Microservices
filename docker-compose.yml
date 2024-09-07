@@ -61,6 +61,20 @@ services:
       POSTGRES_DB: sport_gyms
     command: ["/bin/bash", "-c", "sleep 10 && ./build/AuthorizationAdmin"]
 
+  reg_admin:
+    build: ./RegistrationAdministrator/RegistrationAdministrator
+    container_name: reg_admin
+    ports:
+      - "8085:80"
+    depends_on:
+      - db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0000nN
+      POSTGRES_HOST: host.docker.internal
+      POSTGRES_DB: sport_gyms
+    command: ["/bin/bash", "-c", "sleep 10 && ./build/RegAdmin"]
+
 
 volumes:
   pgdata: {}

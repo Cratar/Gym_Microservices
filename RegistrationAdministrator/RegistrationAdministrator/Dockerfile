@@ -27,7 +27,7 @@ RUN mkdir -p /app/build && cd /app/build && \
     make
 
 # Указываем порт, который будет использоваться приложением
-EXPOSE 8083
+EXPOSE 80
 
 # Указываем команду для запуска приложения
 CMD ["./build/RegistrationAdministrator"]

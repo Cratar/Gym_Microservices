@@ -7,7 +7,7 @@
 #include <openssl/sha.h>
 
 #include "crow.h"
-
+// host.docker.internal localhost
 #define LOGIN_CONNECT "host=host.docker.internal port=5432 dbname=sport_gyms user=postgres password=0000nN"
 
 std::string hashPassword(const std::string& password) {
@@ -111,7 +111,7 @@ int main() {
 
 
             });
-    app.port(8083).multithreaded().run();
+    app.port(80).multithreaded().run();
 
 
 }
