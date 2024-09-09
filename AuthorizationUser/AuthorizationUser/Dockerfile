@@ -21,6 +21,9 @@ COPY . .
 # Клонируем библиотеку Crow
 RUN git clone https://github.com/CrowCpp/Crow.git /app/Crow
 
+#08.09. redis
+#RUN git clone https://github.com/sewenew/redis-plus-plus.git /app/Redis
+
 # Сборка проекта
 RUN mkdir -p /app/build && cd /app/build && \
     cmake .. && \

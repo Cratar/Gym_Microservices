@@ -5,6 +5,9 @@
 #include <openssl/evp.h>
 #include <openssl/sha.h>
 
+#include <sw/redis++/redis++.h>
+
+
 #include "crow.h"
 #define LOGIN_CONNECT "host=host.docker.internal port=5432 dbname=sport_gyms user=postgres password=0000nN"
 
