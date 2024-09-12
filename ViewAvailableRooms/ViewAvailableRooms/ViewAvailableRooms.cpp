@@ -6,7 +6,7 @@
 
 using namespace sw::redis;
 
-// Данные для подключения к PostgreSQL
+// Данные для подключения к PostgreSQL localhost host.docker.internal
 
 #define LOGIN_CONNECT "host=host.docker.internal port=5432 dbname=sport_gyms user=postgres password=0000nN"
 
