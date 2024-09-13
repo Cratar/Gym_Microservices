@@ -9,6 +9,8 @@ RUN apt-get update && \
     git \
     libpq-dev \
     libasio-dev \
+    libssl-dev \
+    libhiredis-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Устанавливаем рабочую директорию
@@ -17,8 +19,10 @@ WORKDIR /app
 # Копируем исходный код и CMakeLists.txt в рабочую директорию
 COPY . .
 
-# Клонируем библиотеку Crow
+# Клонируем библиотеку Crow и redis-plus-plus
 RUN git clone https://github.com/CrowCpp/Crow.git /app/Crow
+RUN git clone https://github.com/sewenew/redis-plus-plus.git /app/redis++ && \
+    mkdir -p /app/redis++/build && cd /app/redis++/build && cmake .. && make && make install
 
 # Сборка проекта
 RUN mkdir -p /app/build && cd /app/build && \

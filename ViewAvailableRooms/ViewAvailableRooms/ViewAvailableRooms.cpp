@@ -85,7 +85,7 @@ int main() {
     crow::SimpleApp app;
 
     // Подключение к Redis
-    Redis redis("tcp://127.0.0.1:6379");
+    Redis redis("tcp://redis_container:6379");
 
     // Маршрут для получения данных о залах
     CROW_ROUTE(app, "/check/gym")
