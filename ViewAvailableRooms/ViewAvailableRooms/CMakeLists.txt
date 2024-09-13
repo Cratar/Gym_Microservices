@@ -14,6 +14,8 @@ add_subdirectory(Crow)
 
 # Поиск библиотеки PostgreSQL
 find_package(PostgreSQL REQUIRED)
+find_package(REDIS_PLUS_PLUS_HEADER REQUIRED)
+
 
 
 # Проверяем, что найдены необходимые библиотеки
@@ -31,4 +33,4 @@ add_executable(CheckGym ViewAvailableRooms.cpp)
 # Линковка с необходимыми библиотеками: PostgreSQL, redis-plus-plus, Crow
 
 
-target_link_libraries(CheckGym PRIVATE ${PostgreSQL_LIBRARIES} Crow)
+target_link_libraries(CheckGym PRIVATE ${PostgreSQL_LIBRARIES} ${REDIS_PLUS_PLUS_LIB} Crow)

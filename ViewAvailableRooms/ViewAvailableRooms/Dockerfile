@@ -1,6 +1,5 @@
 # Используем образ на базе Ubuntu
 FROM ubuntu:latest
-
 # Устанавливаем необходимые пакеты
 RUN apt-get update && \
     apt-get install -y \
@@ -9,6 +8,7 @@ RUN apt-get update && \
     git \
     libpq-dev \
     libasio-dev \
+    libssl-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Устанавливаем рабочую директорию
@@ -19,6 +19,8 @@ COPY . .
 
 # Клонируем библиотеку Crow
 RUN git clone https://github.com/CrowCpp/Crow.git /app/Crow
+RUN git clone https://github.com/sewenew/redis-plus-plus.git /app/REDIS_PLUS_PLUS_HEADER
+
 
 # Сборка проекта
 RUN mkdir -p /app/build && cd /app/build && \

@@ -133,5 +133,6 @@ services:
       POSTGRES_DB: reg_user
     command: ["/bin/bash", "-c", "sleep 10 && ./build/CheckGym"]
 
+
 volumes:
   pgdata: {}
