@@ -5,20 +5,16 @@ project(ViewAvailableRooms)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Добавляем путь к заголовкам ASIO
+# Путь к заголовкам ASIO
 include_directories(${CMAKE_SOURCE_DIR}/asio/asio/include)
 
-# Указываем путь к библиотеке Crow и redis-plus-plus
+# Путь к библиотекам Crow и redis-plus-plus
 add_subdirectory(Crow)
-
 
 # Поиск библиотеки PostgreSQL
 find_package(PostgreSQL REQUIRED)
-find_package(REDIS_PLUS_PLUS_HEADER REQUIRED)
 
-
-
-# Проверяем, что найдены необходимые библиотеки
+# Проверяем, что PostgreSQL найдена
 if (NOT PostgreSQL_FOUND)
     message(FATAL_ERROR "PostgreSQL library not found.")
 endif()
@@ -26,11 +22,17 @@ endif()
 # Добавляем путь к заголовкам PostgreSQL
 include_directories(${PostgreSQL_INCLUDE_DIRS})
 
+# <------------ Установка пути к hiredis и redis-plus-plus --------------->
+# Указываем путь к заголовкам и библиотекам Hiredis
+include_directories(/usr/include/hiredis)
+link_directories(/usr/lib/x86_64-linux-gnu)
 
-# Указываем исходные файлы и библиотеки
+# Указываем путь к заголовкам redis-plus-plus
+include_directories(/app/redis++/src)
+link_directories(/app/redis++/build)
+
+# Добавляем исходный файл и библиотеки для линковки
 add_executable(CheckGym ViewAvailableRooms.cpp)
 
-# Линковка с необходимыми библиотеками: PostgreSQL, redis-plus-plus, Crow
-
-
-target_link_libraries(CheckGym PRIVATE ${PostgreSQL_LIBRARIES} ${REDIS_PLUS_PLUS_LIB} Crow)
+# Линковка с PostgreSQL, Crow, Hiredis, redis-plus-plus
+target_link_libraries(CheckGym PRIVATE ${PostgreSQL_LIBRARIES} /usr/lib/x86_64-linux-gnu/libhiredis.so /app/redis++/build/libredis++.so Crow)
