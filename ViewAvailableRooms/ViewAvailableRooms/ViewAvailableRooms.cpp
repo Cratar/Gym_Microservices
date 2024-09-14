@@ -23,8 +23,14 @@ crow::json::wvalue GetGymsJson(Redis& redis) {
             return crow::json::load(*cached_data); // Возвращаем закэшированные данные
         }
     }
-    catch (const Error& e) {
-        std::cerr << "Ошибка Redis: " << e.what() << std::endl;
+    catch (const Error& error) {
+        std::cerr << "Ошибка Redis: " << error.what() << std::endl;
+
+        PGconn* conn = PQconnectdb(LOGIN_CONNECT);
+        const char* sql = "SELECT gym_name, address, reservation_date, reservation_time FROM gyms";
+        PGresult* res = PQexec(conn, sql);
+        std::cerr << "Ошибка Redis: Данные взяты из БД " << error.what() << std::endl;
+
     }
 
     // Устанавливаем соединение с базой данных
