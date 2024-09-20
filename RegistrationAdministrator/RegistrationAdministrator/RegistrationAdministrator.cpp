@@ -7,8 +7,10 @@
 #include <openssl/sha.h>
 
 #include "crow.h"
+
+
 // host.docker.internal localhost
-#define LOGIN_CONNECT "host=host.docker.internal port=5432 dbname=sport_gyms user=postgres password=0000nN"
+ #define LOGIN_CONNECT "host=host.docker.internal port=5432 dbname=sport_gyms user=postgres password=0000nN" 
 
 std::string hashPassword(const std::string& password) {
     unsigned char hash[SHA256_DIGEST_LENGTH];
@@ -42,7 +44,7 @@ bool RegistrationAdministrator(const std::string& name, const std::string& surna
 
 
     // Устанавливаем соединение
-    PGconn* conn = PQconnectdb(LOGIN_CONNECT);
+    PGconn* conn = PQconnectdb( LOGIN_CONNECT );
 
     // Проверяем состояние соединения
     if (PQstatus(conn) != CONNECTION_OK) {
