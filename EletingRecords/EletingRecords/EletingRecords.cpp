@@ -47,7 +47,7 @@ int main() {
     crow::SimpleApp app;
 
     CROW_ROUTE(app, "/deleting/records")
-        .methods("POST"_method)
+        .methods("DELETE"_method)
         ([](const crow::request& req) {
             auto json_data = crow::json::load(req.body);
             if (!json_data) {
