@@ -90,13 +90,24 @@ int main() {
     setlocale(LC_ALL, "ru_RU.UTF-8");
     crow::SimpleApp app;
 
+
+
     // Подключение к Redis
     Redis redis("tcp://redis_container:6379");
 
     // Маршрут для получения данных о залах
     CROW_ROUTE(app, "/check/gym")
-        ([&redis] {
-        return GetGymsJson(redis);
+        ([&redis]() {
+
+        crow::json::wvalue result;
+
+        std::thread th([&redis , &result]() 
+            {
+                result = GetGymsJson(redis);
+            });
+        th.join();
+        return result;
+
             });
 
     // Запуск сервера на порту 80
